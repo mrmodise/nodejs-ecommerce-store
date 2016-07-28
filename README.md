@@ -10,7 +10,7 @@ An amazon clone ecommerce store built in NodeJS utilizing Express, Stripe Paymen
 5. Elastic Search (https://www.elastic.co/)
 6. 
 ```
-#Instructions
+# Instructions
 Open the project in Sublime Text, and navigate to config folder. Open the config.js in editor:
 
 Add your mongodb url here:
@@ -32,7 +32,7 @@ Create an account with Stripe Payment (https://stripe.com/)
 Open routes/main.js to add the 'sk_test_SAF...' number
 ```
  
- #Running the application
+ # Running the application
 
  Now that we are set. Open project in terminal, and:
  ```
@@ -43,7 +43,7 @@ Open routes/main.js to add the 'sk_test_SAF...' number
  ```
  npm start 
  ```
- #Whats Next
+ # Whats Next
  ```
  I am still add more functionality to the ecommerce store as well as write a detailed tutorial
  ```
