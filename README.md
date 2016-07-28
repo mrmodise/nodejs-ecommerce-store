@@ -1,7 +1,7 @@
 # nodejs-ecommerce-store
 An amazon clone ecommerce store built in NodeJS utilizing Express, Stripe Payment, MongoDB, Elastic Search, Faker API just to mention a few. Developed with the latest cutting edge industry standard technologies, eTswana stores allows a shopper to browse through the online store and buy products using a credit card. eTswana stores supports social sign up and sign in using Facebook.
 
-#Requirements
+# Requirements
 ```
 1. Internet connection
 2. NodeJS (https://nodejs.org/)
@@ -32,7 +32,7 @@ Create an account with Stripe Payment (https://stripe.com/)
 Open routes/main.js to add the 'sk_test_SAF...' number
 ```
  
- # Running the application
+# Running the application
 
  Now that we are set. Open project in terminal, and:
  ```
@@ -43,7 +43,7 @@ Open routes/main.js to add the 'sk_test_SAF...' number
  ```
  npm start 
  ```
- # Whats Next
+# Whats Next
  ```
  I am still add more functionality to the ecommerce store as well as write a detailed tutorial
  ```
