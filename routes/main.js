@@ -2,7 +2,7 @@ var router = require('express').Router();
 var User = require('../models/user');
 var Product = require('../models/product');
 var Cart = require('../models/cart');
-var stripe = require('stripe')('sk_test_viFgGkeJdJg40AE9k216UYno');
+var stripe = require('stripe')('<stripe sk test ID>');
 var async = require('async');
 var passportConf = require('../config/passport');
 
