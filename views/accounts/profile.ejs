@@ -1,0 +1,36 @@
+<% layout('layout') -%>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-md-4">
+			<img class="img-circle img-responsive img-center" src="<%= user.profile.picture %>" alt="">
+			<br>
+			<p><b>Name:</b> <%= user.profile.name %></p>
+			<p><b>Email:</b> <%= user.email %></p>
+			<% if(user.address === "" || typeof user.address === 'undefined') { %>
+			<p>Address: <span style="color: #c0392b; font-weight: bold;">You have no address information</span></p>
+			<% } else { %>
+			<p><b>Address:</b> <%= user.address %></p>
+			<%}%>
+			<a href="/edit-profile" class="btn btn-primary">Edit Profile</a>
+		</div>
+		<div class="col-md-6">
+			<h2 class="text-center">History</h2>
+			<table class="table table-striped sticky-header">
+				<thead>
+					<tr>
+						<th>Item Name</th>
+						<th>Paid: </th>
+					</tr>
+					<tbody>
+						<% for (var i = 0; i < user.history.length ; i++) { %>
+						<tr>
+							<td><%= user.history[i].item.name %></td>
+							<td>$ <%= user.history[i].paid %></td>
+						</tr>
+						<%}%>
+					</tbody>
+				</thead>
+			</table>
+		</div>
+	</div>
+</div>

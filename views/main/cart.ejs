@@ -1,0 +1,132 @@
+<% layout('layout') -%>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6">
+			<% if (message.length > 0) { %>
+			<div class="alert alert-success alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<strong>Removed!</strong> <%= message %>
+			</div>
+			<% } %>
+			<% for(var i = 0; i < foundCart.items.length; i++ ){ %>
+			<div class="list-group">
+				<span class="list-group-item">
+					<div class="row">
+						<div class="col-md-3">
+							<span><img class="product-image" src="<%= foundCart.items[i].item.image %>"></span>
+						</div>
+						<div class="col-md-6">
+							<p class="list-group-item-heading"><%= foundCart.items[i].item.name %></p>
+							
+						</div>
+						<div class="col-md-3">
+							<p><%= foundCart.items[i].quantity %></p>
+							<p>P <%= foundCart.items[i].price %></p>
+							<form action="/remove" method="post">
+								<input type="hidden" name="item" value="<%= foundCart.items[i].id %>">
+								<input type="hidden" name="price" value="<%= foundCart.items[i].price %>">
+								<button type="submit" class="btn btn-danger">Remove</button>
+							</form>
+						</div>
+					</div>
+				</span>
+			</div>
+			<% }%>
+			<div class="pull-right" id="loading"></div>
+		</div>
+		<div class="col-md-3">
+			
+		</div>
+		<div class="col-md-3">
+			<div class="list-group">
+				<span class="list-group-item">
+					<h4>Total: P <span class="totalPrice"><%= foundCart.total %></span> </h4>
+					<div class="form-group">
+						<input type="hidden" value="<%= foundCart.total %>">
+						<% if (foundCart.total == 0) {%>
+
+						<%} else {%>
+						<button type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Pay with Stripe</button>
+						<%}%>
+					</div>
+				</span>
+			</div>
+		</div>
+			<!-- Modal -->
+		<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="col-md-1 col-md-offset-3">
+
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Pay with Stripe</h4>
+						<small style="color: green;">You will be redirected upon successfull payment</small>
+					</div>
+					<div class="modal-body">
+						<!-- Credit card form -->
+						<div class="container">
+							<div class="row">
+								<div class="col-xs-12 col-md-4">
+									<div class="panel panel-default">
+										<div class="panel-heading" style="height: 60px;">
+											<h3 class="panel-title"><img class="pull-right" src="http://i76.imgup.net/accepted_c22e0.png">Payment Details</h3>
+										</div>
+										<div class="panel-body">
+											<form role="form" id="payment-form" action="/payment" method="post">
+											<span style="color: red;" class="payment-errors"></span>
+												<input type="hidden" name="stripeMoney" value="<%= foundCart.total %>">
+												<div class="row">
+													<div class="col-xs-12">
+														<div class="form-group">
+															<label for="cardNumber">CARD NUMBER</label>
+															<div class="input-group">
+																<input type="text" class="form-control" name="cardNumber" placeholder="Valid Card Number" required autofocus data-stripe="number" />
+																<span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-xs-7 col-md-7">
+														<div class="form-group">
+															<label for="expMonth">EXPIRATION DATE</label>
+															<div class="col-xs-6 col-lg-6 pl-ziro">
+																<input type="text" class="form-control" name="expMonth" placeholder="MM" required data-stripe="exp_month" />
+															</div>
+															<div class="col-xs-6 col-lg-6 pl-ziro">
+																<input type="text" class="form-control" name="expYear" placeholder="YY" required data-stripe="exp_year" />
+															</div>
+														</div>
+													</div>
+													<div class="col-xs-5 col-md-5 pull-right">
+														<div class="form-group">
+															<label for="cvCode">CV CODE</label>
+															<input type="password" class="form-control" name="cvCode" placeholder="CV" required data-stripe="cvc" />
+														</div>
+													</div>
+												</div>
+												
+												<div class="row">
+													<div class="col-xs-12">
+														<button class="class btn btn-success btn-lg btn-block" type="submit">Pay P (<%= foundCart.total %>)</button>
+													</div>
+												</div>
+												
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				</div>
+				
+			</div>
+		</div> <!-- end of modal -->
+		
+	</div>
+	
+</div>
