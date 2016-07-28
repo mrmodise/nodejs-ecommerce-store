@@ -1,0 +1,35 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "An ecommerce store",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Morebodi Modise",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.0-rc.5",
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.1",
+    "connect-mongo": "^1.1.0",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "ejs-mate": "^2.3.0",
+    "elasticsearch": "^11.0.1",
+    "express": "^4.13.4",
+    "express-flash": "0.0.2",
+    "express-session": "^1.13.0",
+    "faker": "^3.1.0",
+    "mongoosastic": "^4.0.2",
+    "mongoose": "^4.4.16",
+    "mongoose-double": "0.0.1",
+    "mongoose-long": "^0.1.0",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
+    "stripe": "^4.7.0"
+  }
+}
