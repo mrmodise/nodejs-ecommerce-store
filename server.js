@@ -1,8 +1,4 @@
-/**
- * @author: Morebodi Modise
- * @contacts: http://github.com/mrmodise, http://mrmodise.com
- */
-// require the different modules needed for this project
+// external imports
 var express = require('express');
 var logger = require('morgan');
 var mongoose = require('mongoose');
@@ -14,12 +10,10 @@ var cookieParser = require('cookie-parser');
 var flash = require('express-flash');
 var MongoStore = require('connect-mongo/es5')(session);
 var passport = require('passport');
+
+// custom imports
 var cartLength = require('./middleware/middleware');
-
-// get the keys
 var secret = require('./config/secret');
-
-// our user schema and model
 var User = require('./models/user');
 var Category = require('./models/category');
 
@@ -30,9 +24,8 @@ var errorRoutes = require('./routes/error');
 var adminRoutes = require('./routes/admin');
 var apiRoutes = require('./api/api');
 
-
+// initialize express
 var app = express();
-
 
 // connect node to mongodb
 mongoose.connect(secret.database, function(err){
@@ -41,7 +34,7 @@ mongoose.connect(secret.database, function(err){
 	}else{
 		console.log("Connected to the database");
 	}
-})
+});
 
 //middleware
 app.use(express.static(__dirname + '/public'));
@@ -91,8 +84,6 @@ app.use(userRoutes);
 app.use(adminRoutes);
 app.use('/api', apiRoutes);
 app.use(errorRoutes);
-
-
 
 app.get('/*', function(req, res, next){
 	if (typeof req.cookies['connect.sid'] !== 'undefined') {
