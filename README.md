@@ -2,7 +2,9 @@
 An amazon clone ecommerce store built in NodeJS utilizing Express, Stripe Payment, MongoDB, Elastic Search, Faker API just to mention a few. Developed with the latest cutting edge industry standard technologies, eTswana stores allows a shopper to browse through the online store and buy products using a credit card. eTswana stores supports social sign up and sign in using Facebook.
 
 ### Live Demo
- <a target="_blank" href="https://nameless-eyrie-75082.herokuapp.com/">See</a> live demo as hosted on Heroku (application may take few seconds to open)
+View the live demo as hosted on Heroku at 
+https://nameless-eyrie-75082.herokuapp.com/
+ (application may take few seconds to open)
 
 ### Requirements
 ```
