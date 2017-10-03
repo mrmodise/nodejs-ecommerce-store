@@ -50,10 +50,10 @@ Open routes/main.js to add the 'sk_test_SAF...' number retrieved from Stripe.com
  
  aggg!! Project does not run
  ```
- There are cases where node module versions conflict. If that is the case, remove the ^ on all the 
- node modules in Package.json. Delete the node modules folder and run 'npm install' then 'npm start'
+ Added package-lock.json file to manage dependencies version. This should resolve issues with inconsistent dependencies
  ```
 ## Whats Next
+I am planning to add e2e tests using Protractor. These are tests that automate UI testing on the Browser. 
  ```
  1. REFACTOR! Clean code comments
  2. REFACTOR! Improved code readability
