@@ -28,6 +28,7 @@
     "mongoose-double": "0.0.1",
     "mongoose-long": "^0.1.0",
     "morgan": "^1.7.0",
+    "nightwatch": "^0.9.16",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
