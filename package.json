@@ -16,6 +16,7 @@
     "body-parser": "^1.15.1",
     "connect-mongo": "^1.1.0",
     "cookie-parser": "^1.4.1",
+    "cypress": "^1.4.1",
     "ejs": "^2.4.1",
     "ejs-mate": "^2.3.0",
     "elasticsearch": "^11.0.1",
