@@ -1,3 +1,8 @@
+#cypress
+cypress/fixtures
+cypress/plugins
+cypress/support
+
 # Logs
 logs
 *.log
