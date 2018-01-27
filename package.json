@@ -1,14 +1,14 @@
 {
   "name": "ecommerce",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An ecommerce store",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "cypress": "npx cypress open"
+    "server": "node server.js",
+    "test": "npx cypress open"
   },
-  "author": "Morebodi Modise",
+  "author": "MP Modise",
   "license": "MIT",
   "dependencies": {
     "async": "^2.0.0-rc.5",
@@ -16,8 +16,8 @@
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.1",
     "connect-mongo": "^2.0.1",
+    "connect-mongodb-session": "^1.4.0",
     "cookie-parser": "^1.4.1",
-    "cypress": "^1.4.1",
     "ejs": "^2.4.1",
     "ejs-mate": "^2.3.0",
     "elasticsearch": "14.0.0",
@@ -30,10 +30,14 @@
     "mongoose-double": "0.0.1",
     "mongoose-long": "^0.1.0",
     "morgan": "^1.7.0",
-    "nightwatch": "^0.9.16",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
     "stripe": "^5.4.0"
+  },
+  "devDependencies": {
+    "opn-cli": "^3.1.0",
+    "cypress": "^1.4.1",
+    "nightwatch": "^0.9.16"
   }
 }
