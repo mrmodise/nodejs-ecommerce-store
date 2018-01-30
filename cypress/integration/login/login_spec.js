@@ -1,7 +1,9 @@
 describe('Logging users into the application', function() {
-    it('should login user in', function() {
-
+    it('should fail to log user in', function() {
         cy.visit('/login');
-        expect(true).to.equal(true)
+        cy.get('#email').type('tester1@gmail.com');
+        cy.get('#password').type('tester1');
+        cy.get('#submit').click();
+        cy.get('#error-login').should('have.text', 'Error! No user with such credentials found');
     })
 });

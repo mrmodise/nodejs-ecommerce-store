@@ -59,10 +59,12 @@ number retrieved from Stripe.com
  
  ## Testing 
  
- Add testing data to the applicaiton by loading API data from Faker API. To do this,
+ Add testing data to the application by loading API data from Faker API. To do this,
  open ``http://localhost:3000/api/<name-of-category-added>``. Do this for all categories. I will automate this functionality with Cypress/Nightwatch UI automation tool.
  
  To run automated UI tests, run ```npm test```
+ 
+ The tests are written using the Cypress framework (https://www.cypress.io)
  
 ## Whats Next
 I am planning to add e2e tests using Protractor. These are tests that automate UI testing on the Browser. 
