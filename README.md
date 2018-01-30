@@ -12,7 +12,9 @@ https://nameless-eyrie-75082.herokuapp.com/
 2. NodeJS (https://nodejs.org/)
 3. Sublime Text Editor (optional: I use WebStorm)
 4. MongoDB (you can use www.mlab.com)
-5. Elastic Search (https://www.elastic.co/)
+5. Elastic Search (https://www.elastic.co/):
+    Download version 1.7.5 others are not compatable
+6. Stripe account
 ```
 ### Instructions
 Open the project in Sublime Text, and navigate to config folder. Open the config.js in the editor:
@@ -33,7 +35,8 @@ clientSecret: process.env.FACEBOOK_SECRET || '<facebook_secret_key>'
 ```
 Create an account with Stripe Payment (https://stripe.com/)
 ```
-Open routes/main.js to add the 'sk_test_SAF...' number retrieved from Stripe.com
+Open routes/main.js to add the 'sk_test_SAF...' 
+number retrieved from Stripe.com
 ```
  
 ## Running the application
@@ -50,15 +53,25 @@ Open routes/main.js to add the 'sk_test_SAF...' number retrieved from Stripe.com
  
  aggg!! Project does not run
  ```
- Added package-lock.json file to manage dependencies version. This should resolve issues with inconsistent dependencies
+ * Make sure Elasticsearch is running (version 1.7.5).
+ * If using MongoDB locally, make sure it is running as well.
  ```
+ 
+ ## Testing 
+ 
+ Add testing data to the applicaiton by loading API data from Faker API. To do this,
+ open ``http://localhost:3000/api/<name-of-category-added>``. Do this for all categories. I will automate this functionality with Cypress/Nightwatch UI automation tool.
+ 
+ To run automated UI tests, run ```npm test```
+ 
 ## Whats Next
 I am planning to add e2e tests using Protractor. These are tests that automate UI testing on the Browser. 
  ```
  1. REFACTOR! Clean code comments
  2. REFACTOR! Improved code readability
  3. More functionality to the ecommerce 
- 4. Write a detailed tutorial - probably use a package to generate one from the code comments
+ 4. Write a detailed tutorial - probably use a package to generate one
+  from the code comments
  ```
  ### License
  
