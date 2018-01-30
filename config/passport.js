@@ -1,7 +1,3 @@
-/**
- * @author: Morebodi Modise
- * @contacts: http://github.com/mrmodise, http://mrmodise.com
- */
 // needed for local authentication
 var passport = require('passport');
 
@@ -104,4 +100,4 @@ exports.isAuthenticated = function(req, res, next) {
     }
     res.redirect('/login');
 
-}
+};

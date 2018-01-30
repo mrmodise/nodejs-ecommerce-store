@@ -1,7 +1,3 @@
-/**
- * @author: Morebodi Modise
- * @contacts: http://github.com/mrmodise, http://mrmodise.com
- */
 module.exports = {
 	database: '<mongo_db_url>',
 	port: process.env.PORT || 3000,
@@ -10,6 +6,6 @@ module.exports = {
 		clientID: process.env.FACEBOOK_ID || '<facebook_id>',
 		clientSecret: process.env.FACEBOOK_SECRET || '<facebook_secret_key>',
 		profileFields: ['emails','displayName'],
-		callbackURL: 'https://localhost/auth/facebook/callback'
+		callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	}
 }
