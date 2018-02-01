@@ -62,6 +62,7 @@ router.post('/signup', function(req, res, next) {
             var user = new User();
             // populate the user properties based on what the user submitted
             user.profile.name = req.body.name;
+            user.name = req.body.name;
             user.password = req.body.password;
             user.email = req.body.email;
             user.profile.picture = user.gravatar();

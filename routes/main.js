@@ -1,6 +1,6 @@
 // external imports
 var router = require('express').Router();
-var stripe = require('stripe')('<stripe sk test ID>');
+var stripe = require('stripe')('pk_test_6eUlykjUkKIa4viRDPGNKjwv');
 var async = require('async');
 
 // custom imports
@@ -48,23 +48,21 @@ Product.createMapping(function (err, mapping) {
 		console.log(err);
 	} else {
 		console.log("Mapping created");
-		console.log(mapping);
 	}
 });
 
-var stream = Product.synchronize();
-var count = 0;
+var stream = Product.synchronize(), count = 0;
 
 stream.on('data', function () {
-	count++;
+    count++;
 });
 
 stream.on('close', function () {
-	console.log("Indexed " + count + " documents");
+    console.log("Indexed " + count + " documents from Products");
 });
 
 stream.on('error', function (err) {
-	console.log(err);
+    console.log(err);
 });
 
 /**
