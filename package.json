@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "server": "node server.js",
-    "test": "npx cypress open"
+    "test": "npx cypress open",
+    "test-record": "npx cypress run --record --key mokwena@"
   },
   "author": "MP Modise",
   "license": "MIT",
@@ -36,8 +37,10 @@
     "stripe": "^5.4.0"
   },
   "devDependencies": {
-    "opn-cli": "^3.1.0",
+    "chance": "^1.0.13",
     "cypress": "^1.4.1",
-    "nightwatch": "^0.9.16"
+    "nightwatch": "^0.9.16",
+    "nodemon": "^1.14.11",
+    "opn-cli": "^3.1.0"
   }
 }
