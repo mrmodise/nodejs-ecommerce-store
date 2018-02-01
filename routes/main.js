@@ -1,6 +1,6 @@
 // external imports
 var router = require('express').Router();
-var stripe = require('stripe')('pk_test_6eUlykjUkKIa4viRDPGNKjwv');
+var stripe = require('stripe')('<stripe_key>');
 var async = require('async');
 
 // custom imports
