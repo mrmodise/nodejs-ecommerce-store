@@ -57,7 +57,7 @@ number retrieved from Stripe.com
  * If using MongoDB locally, make sure it is running as well.
  ```
  
- ## Testing 
+## Testing 
  
  Add testing data to the application by loading API data from Faker API. To do this,
  open ``http://localhost:3000/api/<name-of-category-added>``. Do this for all categories. I will automate this functionality with Cypress/Nightwatch UI automation tool.
@@ -65,6 +65,12 @@ number retrieved from Stripe.com
  To run automated UI tests, run ```npm test```
  
  The tests are written using the Cypress framework (https://www.cypress.io)
+ 
+## Docker & Kubernetes
+
+To create a Docker container for the application, ``docker build -t etswana:1.0.0 .``. Create the Docker image with ``docker run etswana:1.0.0``
+
+WIP: add more instructions on setting up Docker and Kubernetes including monitoring.
  
 ## Whats Next
 I am planning to add e2e tests using Protractor. These are tests that automate UI testing on the Browser. 
@@ -75,7 +81,7 @@ I am planning to add e2e tests using Protractor. These are tests that automate U
  4. Write a detailed tutorial - probably use a package to generate one
   from the code comments
  ```
- ### License
+### License
  
  ```
  The MIT License (MIT)
