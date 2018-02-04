@@ -2,7 +2,7 @@
 cypress/fixtures
 cypress/plugins
 cypress/support
-
+.DS_Store
 # Logs
 logs
 *.log
