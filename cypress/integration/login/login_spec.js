@@ -1,5 +1,5 @@
-describe('Logging users into the application', function() {
-    it('should fail to login user with incorrect credentials', function() {
+describe('Logging users into the application', () => {
+    it('should fail to login user with incorrect credentials', () => {
         cy.visit('/login');
         cy.get('#email').type('tester1@gmail.com');
         cy.get('#password').type('tester1');
