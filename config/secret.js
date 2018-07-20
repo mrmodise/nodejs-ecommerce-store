@@ -1,4 +1,4 @@
-module.exports = {
+    module.exports = {
     database: 'mongodb://localhost/test',
     port: process.env.PORT || 3000,
     secretKey: "LKSJ&%REKZ",
@@ -8,4 +8,4 @@ module.exports = {
         profileFields: ['emails','displayName'],
         callbackURL: 'http://localhost:3000/auth/facebook/callback'
     }
-}
+};

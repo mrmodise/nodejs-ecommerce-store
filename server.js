@@ -34,7 +34,7 @@ mongoose.connect(secret.database, function(err){
 	}else{
 		console.log("Connected to the database");
 	}
-});
+},  {useNewUrlParser: true});
 
 //middleware
 app.use(express.static(__dirname + '/public'));
