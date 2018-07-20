@@ -43,12 +43,12 @@ number retrieved from Stripe.com
 
  Now that we are set. Open project in terminal, and:
  ```
- npm install (this will install all dependencies)
+ yarn install (this will install all dependencies)
  ```
  
  Once all dependencies are installed
  ```
- npm start 
+ yarn start 
  ```
  
  aggg!! Project does not run
@@ -62,7 +62,7 @@ number retrieved from Stripe.com
  Add testing data to the application by loading API data from Faker API. To do this,
  open ``http://localhost:3000/api/<name-of-category-added>``. Do this for all categories. I will automate this functionality with Cypress/Nightwatch UI automation tool.
  
- To run automated UI tests, run ```npm test```
+ To run automated UI tests, run ```yarn test```
  
  The tests are written using the Cypress framework (https://www.cypress.io)
  

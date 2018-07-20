@@ -20,7 +20,7 @@
     "connect-mongodb-session": "^1.4.0",
     "cookie-parser": "^1.4.1",
     "ejs": "^2.4.1",
-    "ejs-mate": "^2.3.0",
+    "ejs-mate": "^2.5.5",
     "elasticsearch": "14.0.0",
     "express": "^4.13.4",
     "express-flash": "0.0.2",
@@ -40,7 +40,7 @@
     "chance": "^1.0.13",
     "cypress": "^1.4.1",
     "nightwatch": "^0.9.16",
-    "nodemon": "^1.14.11",
+    "nodemon": "^1.18.3",
     "opn-cli": "^3.1.0"
   }
 }
