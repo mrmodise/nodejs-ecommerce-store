@@ -7,6 +7,7 @@
     "start": "node server.js",
     "server": "node server.js",
     "test": "npx cypress open",
+    "test:record": "npx cypress run --record --key a7bq2k",
     "test-record": "npx cypress run --record --key mokwena@"
   },
   "author": "MP Modise",
