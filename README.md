@@ -60,7 +60,9 @@ number retrieved from Stripe.com
 ## Testing 
  
  Add testing data to the application by loading API data from Faker API. To do this,
- open ``http://localhost:3000/api/<name-of-category-added>``. Do this for all categories. I will automate this functionality with Cypress/Nightwatch UI automation tool.
+ open ``http://localhost:3000/api/<name-of-category-added>``. Do this for all categories. I will automate this functionality with Cypress UI automation tool.
+ 
+ ``started on automating this``
  
  To run automated UI tests, run ```yarn test```
  
@@ -73,7 +75,6 @@ To create a Docker container for the application, ``docker build -t etswana:1.0.
 WIP: add more instructions on setting up Docker and Kubernetes including monitoring.
  
 ## Whats Next
-I am planning to add e2e tests using Protractor. These are tests that automate UI testing on the Browser. 
  ```
  1. REFACTOR! Clean code comments
  2. REFACTOR! Improved code readability
