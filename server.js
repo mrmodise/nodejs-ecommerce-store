@@ -1,40 +1,40 @@
 // external imports
-var express = require('express');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
-var ejs = require('ejs');
-var engine = require('ejs-mate');
-var session = require('express-session');
-var cookieParser = require('cookie-parser');
-var flash = require('express-flash');
-var MongoStore = require('connect-mongo')(session);
-var passport = require('passport');
+const express = require('express');
+const logger = require('morgan');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const ejs = require('ejs');
+const engine = require('ejs-mate');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const flash = require('express-flash');
+const MongoStore = require('connect-mongo')(session);
+const passport = require('passport');
 
 // custom imports
-var cartLength = require('./middleware/middleware');
-var secret = require('./config/secret');
-var User = require('./models/user');
-var Category = require('./models/category');
+const cartLength = require('./middleware/middleware');
+const secret = require('./config/secret');
+const User = require('./models/user');
+const Category = require('./models/category');
 
 // get routes
-var mainRoutes = require('./routes/main');
-var userRoutes = require('./routes/user');
-var errorRoutes = require('./routes/error');
-var adminRoutes = require('./routes/admin');
-var apiRoutes = require('./api/api');
+const mainRoutes = require('./routes/main');
+const userRoutes = require('./routes/user');
+const errorRoutes = require('./routes/error');
+const adminRoutes = require('./routes/admin');
+const apiRoutes = require('./api/api');
 
 // initialize express
-var app = express();
+const app = express();
 
 // connect node to mongodb
-mongoose.connect(secret.database, function(err){
-	if (err) {
-		console.log("Make sure the database server is running " + err);
-	}else{
-		console.log("Connected to the database");
-	}
-},  {useNewUrlParser: true});
+mongoose.connect(secret.database, (err) => {
+    if (err) {
+        console.log('Make sure the database server is running ' + err);
+    } else {
+        console.log('Connected to the database');
+    }
+}, {useNewUrlParser: true});
 
 //middleware
 app.use(express.static(__dirname + '/public'));
@@ -43,37 +43,35 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(session({
-	resave: true,
-	saveUninitialized: true,
-	secret: secret.secretKey,
-	store: new MongoStore({url: secret.database, autoReconnect: true})
+    resave: true,
+    saveUninitialized: true,
+    secret: secret.secretKey,
+    store: new MongoStore({url: secret.database, autoReconnect: true})
 }));
 
 app.use(flash());
-
 // set the view
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
-
 // make use of our passport module
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(function(req, res, next){
-	// assign each route the user object
-	res.locals.user = req.user;
-	next();
+app.use((req, res, next) => {
+    // assign each route the user object
+    res.locals.user = req.user;
+    next();
 });
 
-app.use(function(req, res, next){
-	/* search for all categories */
-	Category.find({}, function(err, categories){
-		/*if there is an error return it */
-		if (err) return next(err);
+app.use((req, res, next) => {
+    /* search for all categories */
+    Category.find({}, (err, categories) => {
+        /*if there is an error return it */
+        if (err) return next(err);
 
-		res.locals.categories = categories;
+        res.locals.categories = categories;
 
-		next();
-	});
+        next();
+    });
 });
 
 app.use(cartLength);
@@ -85,14 +83,14 @@ app.use(adminRoutes);
 app.use('/api', apiRoutes);
 app.use(errorRoutes);
 
-app.get('/*', function(req, res, next){
-	if (typeof req.cookies['connect.sid'] !== 'undefined') {
-		console.log(req.cookies['connect.sid']);
-	}
+app.get('/*', (req, res, next) => {
+    if (typeof req.cookies['connect.sid'] !== 'undefined') {
+        console.log(req.cookies['connect.sid']);
+    }
 });
 
 // configure the server's listen port and give user feedback
-app.listen(secret.port, function(err){
-	if(err) throw err;
-	console.log("Go to http://localhost:" + secret.port + " in your browser");
+app.listen(secret.port, (err) => {
+    if (err) throw err;
+    console.log('Go to http://localhost:' + secret.port + ' in your browser');
 });
