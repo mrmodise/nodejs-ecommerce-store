@@ -1,11 +1,7 @@
-/**
- * @author: Morebodi Modise
- * @contacts: http://github.com/mrmodise, http://mrmodise.com
- */
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var CategorySchema = new Schema({
+const CategorySchema = new Schema({
 	name: {type: String, unique: true, lowercase: true}
 });
 

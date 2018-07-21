@@ -1,10 +1,10 @@
-var mongoose = require('mongoose')
+const mongoose = require('mongoose')
 require('mongoose-long')(mongoose);
-var mongoosastic = require('mongoosastic');
-var Schema = mongoose.Schema;
+const mongoosastic = require('mongoosastic');
+const Schema = mongoose.Schema;
 ObjectId = Schema.Types;
 
-var ProductSchema = new Schema({
+const ProductSchema = new Schema({
     category: {
         type: mongoose.Schema.Types.ObjectId, ref: 'Category'
     },

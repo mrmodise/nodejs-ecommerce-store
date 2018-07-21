@@ -1,21 +1,21 @@
 // external imports
-var router = require('express').Router();
-var passport = require('passport');
-var async = require('async');
+const router = require('express').Router();
+const passport = require('passport');
+const async = require('async');
 
 // custom imports
-var Cart = require('../models/cart');
-var User = require('../models/user');
-var passportConf = require('../config/passport');
+const Cart = require('../models/cart');
+const User = require('../models/user');
+const passportConf = require('../config/passport');
 
 /**
  *  Handles GET HTTP requests for user login
  */
-router.get('/login', function(req, res) {
+router.get('/login', (req, res) => {
     // if user exists, then they have been logged in redirect to home page
     if (req.user) return res.redirect('/');
     // user was not logged in, show error message (No user with such credentials found)
-    res.render('accounts/login', { message: req.flash('loginMessage') });
+    res.render('accounts/login', {message: req.flash('loginMessage')});
 });
 
 /**
@@ -30,20 +30,20 @@ router.post('/login', passport.authenticate('local-login', {
 /**
  * Handles GET HTTP requests for user profile
  */
-router.get('/profile', passportConf.isAuthenticated, function(req, res, next) {
+router.get('/profile', passportConf.isAuthenticated, (req, res, next) => {
     // search for a single user given the user ID
-    User.findOne({ _id: req.user._id })
+    User.findOne({_id: req.user._id})
         .populate('history.item')
-        .exec(function(err, foundUser) {
+        .exec((err, foundUser) => {
             if (err) return next(err); // oops error might occur
-            res.render('accounts/profile', { user: foundUser }); // user found, render the profile view
+            res.render('accounts/profile', {user: foundUser}); // user found, render the profile view
         });
 });
 
 /**
  * Handles GET HTTP requests for user sign-up
  */
-router.get('/signup', function(req, res, next) {
+router.get('/signup', (req, res, next) => {
     // user sign-up failed, show error message
     res.render('accounts/signup', {
         errors: req.flash('errors')
@@ -53,13 +53,13 @@ router.get('/signup', function(req, res, next) {
 /**
  * Handles POST HTTP request for user sign-up
  */
-router.post('/signup', function(req, res, next) {
+router.post('/signup', (req, res, next) => {
     // executes array of functions in series, passing result of previous function to the next
     async.waterfall([
-		// function 1
-        function(callback) {
+        // function 1
+        (callback) => {
             // create new user model
-            var user = new User();
+            let user = new User();
             // populate the user properties based on what the user submitted
             user.profile.name = req.body.name;
             user.name = req.body.name;
@@ -68,7 +68,7 @@ router.post('/signup', function(req, res, next) {
             user.profile.picture = user.gravatar();
 
             // check submitted email against the database
-            User.findOne({ email: req.body.email }, function(err, existingUser) {
+            User.findOne({email: req.body.email}, (err, existingUser) => {
                 // does the user already exist?
                 if (existingUser) {
                     // return an error message to indicate user already exists
@@ -77,30 +77,30 @@ router.post('/signup', function(req, res, next) {
                     return res.redirect('/signup')
                 } else {
                     // save the user to the database if there is no error
-                    user.save(function(err, user) {
-						// oops error might occur
+                    user.save((err, user) => {
+                        // oops error might occur
                         if (err) return next(err);
-						// success set user to the callback
+                        // success set user to the callback
                         callback(null, user);
                     });
                 }
             });
         },
-	    // function 2 - receives result of function 1, see line 83 above
-        function(user) {
-    	// create a new cart model
-            var cart = new Cart();
+        // function 2 - receives result of function 1, see line 83 above
+        (user) => {
+            // create a new cart model
+            const cart = new Cart();
             // set cart owner as the current user
             cart.owner = user._id;
             // save cart to mongo
-            cart.save(function(err) {
-            	// oops error might occur
+            cart.save((err) => {
+                // oops error might occur
                 if (err) return next(err);
-				// log user in
-                req.logIn(user, function(err) {
-					// error occurred
+                // log user in
+                req.logIn(user, (err) => {
+                    // error occurred
                     if (err) return next(err);
-					// sucess, redirect user to their profile page
+                    // sucess, redirect user to their profile page
                     res.redirect('/profile');
                 });
             });
@@ -111,8 +111,8 @@ router.post('/signup', function(req, res, next) {
 /**
  * Handles GET HTTP requests for user logout
  */
-router.get('/logout', function(req, res, next) {
-	// terminate existing login session
+router.get('/logout', (req, res, next) => {
+    // terminate existing login session
     req.logout();
     // send user back to the home/landing page
     return res.redirect('/');
@@ -121,30 +121,30 @@ router.get('/logout', function(req, res, next) {
 /**
  * Handles GET HTTP requests for editing user profile
  */
-router.get('/edit-profile', function(req, res, next) {
-	// load the edit profile view
-    res.render('accounts/edit-profile', { message: req.flash('success') });
+router.get('/edit-profile', (req, res, next) => {
+    // load the edit profile view
+    res.render('accounts/edit-profile', {message: req.flash('success')});
 });
 
 /**
  * Handles POST HTTP requests for editing user profile
  */
-router.post('/edit-profile', function(req, res, next) {
-	// check submitted user id against the database
-    User.findOne({ _id: req.user._id }, function(err, user) {
-		// error occurred
+router.post('/edit-profile', (req, res, next) => {
+    // check submitted user id against the database
+    User.findOne({_id: req.user._id}, (err, user) => {
+        // error occurred
         if (err) return next(err);
-		// success - update user's name
+        // success - update user's name
         if (req.body.name) user.profile.name = req.body.name;
-		// update user address
+        // update user address
         if (req.body.address) user.address = req.body.address;
-		// save the newly updated user details
-        user.save(function(err) {
-			// oops error might occur
+        // save the newly updated user details
+        user.save((err) => {
+            // oops error might occur
             if (err) return next(err);
-			// success - render success notification
+            // success - render success notification
             req.flash('success', 'You have successfully edited your profile information');
-			// redirect user to the edit profile view
+            // redirect user to the edit profile view
             return res.redirect('/edit-profile');
         });
     });
@@ -154,7 +154,7 @@ router.post('/edit-profile', function(req, res, next) {
 /**
  * Handle GET HTTP requests from Facebook authentication
  */
-router.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
+router.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
 
 /**
  * Handles GET HTTP results from Facebook authentication

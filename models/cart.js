@@ -1,11 +1,7 @@
-/**
- * @author: Morebodi Modise
- * @contacts: http://github.com/mrmodise, http://mrmodise.com
- */
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var CartSchema = new Schema({
+const CartSchema = new Schema({
 	owner: {type: Schema.Types.ObjectId, ref: 'User'},
 	total: {type: Number, default: 0},
 	items: [{
