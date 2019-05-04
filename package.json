@@ -31,7 +31,7 @@
     "mongoose": "^5.0.1",
     "mongoose-double": "0.0.1",
     "mongoose-long": "^0.1.0",
-    "morgan": "^1.7.0",
+    "morgan": "1.9.1",
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
