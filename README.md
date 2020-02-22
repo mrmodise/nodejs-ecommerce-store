@@ -10,14 +10,14 @@ https://nameless-eyrie-75082.herokuapp.com/
 ```
 1. Internet connection
 2. NodeJS (https://nodejs.org/)
-3. Sublime Text Editor (optional: I use WebStorm)
-4. MongoDB (you can use www.mlab.com)
-5. Elastic Search (https://www.elastic.co/):
+3. VS Code (optional: I use WebStorm)
+4. MongoDB (you can use www.mlab.com or Docker alternative)
+5. Elastic Search (https://www.elastic.co/ or Docker alternative):
     Download version 1.7.5 others are not compatable
 6. Stripe account
 ```
 ### Instructions
-Open the project in Sublime Text, and navigate to config folder. Open the config.js in the editor:
+Open the project in VS Code, and navigate to config folder. Open the config.js in the editor:
 
 Add mongodb URL:
 ```
@@ -43,12 +43,12 @@ number retrieved from Stripe.com
 
  Now that we are set. Open project in terminal, and:
  ```
- yarn install (this will install all dependencies)
+ npm install (this will install all dependencies)
  ```
  
  Once all dependencies are installed
  ```
- yarn start 
+ npm start 
  ```
  
  aggg!! Project does not run
@@ -56,6 +56,7 @@ number retrieved from Stripe.com
  * Make sure Elasticsearch is running (version 1.7.5).
  * If using MongoDB locally, make sure it is running as well.
  ```
+ alternatively if you have Docker and Docker compose installed then simply docker-compose up. This will install and run MongoD and ElasticSearch.
  
 ## Testing 
  
@@ -64,7 +65,7 @@ number retrieved from Stripe.com
  
  ``started on automating this``
  
- To run automated UI tests, run ```yarn test```
+ To run automated UI tests, run ```npm run test```
  
  The tests are written using the Cypress framework (https://www.cypress.io)
  
