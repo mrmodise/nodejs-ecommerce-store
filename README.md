@@ -77,8 +77,8 @@ WIP: add more instructions on setting up Docker and Kubernetes including monitor
  
 ## Whats Next
  ```
- 1. REFACTOR! Clean code comments
- 2. REFACTOR! Improved code readability
+ ~~1. REFACTOR! Clean code comments~~
+ ~~2. REFACTOR! Improved code readability~~
  3. More functionality to the ecommerce 
  4. Write a detailed tutorial - probably use a package to generate one
   from the code comments
