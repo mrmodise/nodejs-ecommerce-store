@@ -23,7 +23,7 @@ const UserSchema = new Schema({
 });
 
 /** Hash the password before saving it to the database*/
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function(next) {
     /** this refers to the user passed as argument to the save method in /routes/user*/
     const user = this;
     /** only hash the password if it has been modified or its new */
