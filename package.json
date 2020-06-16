@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "chance": "1.1.4",
-    "cypress": "4.0.2",
+    "cypress": "4.8.0",
     "nodemon": "2.0.2",
     "opn-cli": "5.0.0"
   }
