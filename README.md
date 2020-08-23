@@ -69,6 +69,10 @@ number retrieved from Stripe.com
  
  The tests are written using the Cypress framework (https://www.cypress.io)
  
+ ``
+ For Stripe payment testing please use the recommended cards on this: https://stripe.com/docs/testing
+ ``
+ 
 ## Docker & Kubernetes
 
 To create a Docker container for the application, ``docker build -t etswana:1.0.0 .``. Create the Docker image with ``docker run etswana:1.0.0``
