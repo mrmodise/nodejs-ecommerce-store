@@ -3,7 +3,7 @@ An amazon clone ecommerce store built in NodeJS utilizing Express, Stripe Paymen
 
 ### Live Demo
 View the live demo as hosted on Heroku at 
-https://nameless-eyrie-75082.herokuapp.com/
+https://etswana.herokuapp.com/
  (application may take few seconds to open)
 
 ### Requirements
