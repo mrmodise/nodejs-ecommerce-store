@@ -21,7 +21,7 @@ Open the project in VS Code, and navigate to config folder. Open the config.js i
 
 Add mongodb URL:
 ```
- database: '<mongo_db_url>' e.g. mongodb://localhost/test
+ database: '<mongo_db_url>' e.g. mongodb://localhost:27017/test
 ```
  Provide a secret key:
  ```
