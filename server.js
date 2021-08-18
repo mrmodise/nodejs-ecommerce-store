@@ -10,6 +10,14 @@ const cookieParser = require('cookie-parser');
 const flash = require('express-flash');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
+const helmet = require('helmet');
+const rateLimit = require('./middleware/rateLimitter.js')
+const getRawBody = require('raw-body')
+const contentType = require('content-type')
+const hpp = require('hpp');
+const toobusy = require('toobusy-js');
+const cpuPercentage = require('./middleware/cpuUsage');
+
 
 // custom imports
 const cartLength = require('./middleware/middleware');
@@ -35,6 +43,71 @@ mongoose.connect(secret.database, (err) => {
         console.log('Connected to the database');
     }
 }, {useNewUrlParser: true});
+
+
+
+
+
+
+
+
+
+
+
+
+//Security Middleware for backend infrastructure
+
+app.use(
+    helmet.frameguard(),
+    helmet.hsts(),
+    helmet.noSniff(),
+    helmet.dnsPrefetchControl(),
+    helmet.ieNoOpen(),
+    helmet.referrerPolicy(),
+    helmet.xssFilter(),
+    helmet.hidePoweredBy()
+)
+// Rate limitter for DDOS attacks
+app.use(rateLimit());
+
+// Checks whether request size is greater than the permitter value (default added value 2 kb)
+// If request size is greater than 2kb rejects the request
+app.use(function (req, res, next) {
+  if (!['POST', 'PUT', 'DELETE'].includes(req.method)) {
+    next()
+    return
+  }
+
+  getRawBody(req, {
+    length: req.headers['content-length'],
+    limit: '1mb', 
+    encoding: contentType.parse(req).parameters.charset
+  }, function (err, string) {
+    if (err) return next(err)
+    req.text = string
+    next()
+  })
+})
+//Server Overload Notifier 
+app.use(function(req, res, next) {
+    if (toobusy()) {
+        // log if you see necessary
+        console.log(cpuPercentage());
+        res.send(503, "Server Too Busy");
+    } else {
+    next();
+    }
+});
+
+//Prevent HTTP Parameter Pollution
+app.use(hpp());
+
+
+
+
+
+
+
 
 //middleware
 app.use(express.static(__dirname + '/public'));
