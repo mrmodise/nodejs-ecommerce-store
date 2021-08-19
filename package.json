@@ -7,7 +7,8 @@
     "server": "node server.js",
     "test": "npx cypress open",
     "test:record": "npx cypress run --record --key a7bq2k",
-    "test-record": "npx cypress run --record --key mokwena@"
+    "test-record": "npx cypress run --record --key mokwena@",
+    "test-security": "jest"
   },
   "author": "MP Modise",
   "license": "MIT",
@@ -18,28 +19,37 @@
     "body-parser": "1.19.0",
     "connect-mongo": "3.2.0",
     "connect-mongodb-session": "2.3.1",
+    "content-type": "^1.0.4",
     "cookie-parser": "1.4.4",
     "ejs": "3.0.1",
     "ejs-mate": "3.0.0",
     "elasticsearch": "14.0.0",
     "express": "4.17.1",
     "express-flash": "0.0.2",
+    "express-rate-limit": "^5.3.0",
     "express-session": "1.16.1",
     "faker": "4.1.0",
+    "helmet": "^4.6.0",
+    "hpp": "^0.2.3",
+    "jest": "^27.0.6",
     "mongoosastic": "4.5.1",
     "mongoose": "5.9.2",
     "mongoose-double": "0.0.1",
     "mongoose-long": "0.2.1",
     "morgan": "1.9.1",
+    "node-os-utils": "^1.3.5",
     "passport": "0.4.1",
     "passport-facebook": "2.1.1",
     "passport-local": "1.0.0",
-    "stripe": "5.4.0"
+    "raw-body": "^2.4.1",
+    "stripe": "5.4.0",
+    "toobusy-js": "^0.5.1"
   },
   "devDependencies": {
     "chance": "1.1.4",
     "cypress": "4.8.0",
     "nodemon": "2.0.2",
-    "opn-cli": "5.0.0"
+    "opn-cli": "5.0.0",
+    "prettier": "2.3.2"
   }
 }
