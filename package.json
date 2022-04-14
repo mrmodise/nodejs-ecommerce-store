@@ -13,7 +13,7 @@
   "author": "MP Modise",
   "license": "MIT",
   "dependencies": {
-    "async": "2.6.2",
+    "async": "3.2.2",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "2.3.0",
     "body-parser": "1.19.0",
