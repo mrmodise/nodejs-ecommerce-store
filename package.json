@@ -18,7 +18,7 @@
     "bcryptjs": "2.3.0",
     "body-parser": "1.19.0",
     "connect-mongo": "3.2.0",
-    "connect-mongodb-session": "2.3.1",
+    "connect-mongodb-session": "3.1.1",
     "content-type": "^1.0.4",
     "cookie-parser": "1.4.4",
     "ejs": "3.1.7",
