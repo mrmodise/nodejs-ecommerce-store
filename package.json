@@ -21,7 +21,7 @@
     "connect-mongodb-session": "2.3.1",
     "content-type": "^1.0.4",
     "cookie-parser": "1.4.4",
-    "ejs": "3.0.1",
+    "ejs": "3.1.7",
     "ejs-mate": "3.0.0",
     "elasticsearch": "16.7.3",
     "express": "4.17.3",
